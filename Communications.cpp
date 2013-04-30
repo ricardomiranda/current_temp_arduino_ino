@@ -103,8 +103,9 @@ void Communications::calc(String _output_string)
     Serial.println("disconnecting.");
     this->client.stop();
 
-    // do nothing forevermore:
-    for(;;);
+    // Restart arduino
+    void(* resetFunc) (void) = 0; //declare reset function @ address 0
+    resetFunc();  //call reset
   }
 
 /*
@@ -118,5 +119,6 @@ void Communications::calc(String _output_string)
 */
 }
 
+//--------------------------------------------------------------------------------------
 
 

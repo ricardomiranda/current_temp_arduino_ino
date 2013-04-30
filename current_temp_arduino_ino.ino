@@ -13,7 +13,7 @@
 
 Current        emon1;             // Create an instance for phase   I
 Current       emon2;              // Create an instance for phase  II
-//Current       emon3;              // Create an instance for phase III
+Current       emon3;              // Create an instance for phase III
 
 Temperature    temp;
 Communications comm;
@@ -26,7 +26,7 @@ void setup()
   
   emon1.current(0, 30.0, 5.0);         // Current: input pin, clamp Max I, Input Arduino (5.0 V or 3.3 V)
   emon2.current(1, 30.0, 5.0);         // Current: input pin
-//  emon3.current(2, 30.0, 5.0);         // Current: input pin
+  emon3.current(2, 30.0, 5.0);         // Current: input pin
 
   temp.temperature(3, 100.0, 5.0);
   comm.communications();
@@ -42,9 +42,9 @@ void loop()
   }
  
   
-  emon1.calc(1000, comm);                   // time-out (millis)
+  emon1.calc(1000, comm);                  // time-out (millis)
   emon2.calc(2000, comm);                  // time-out (millis)
-//  emon3.calc(2000, comm);                  // time-out (millis)
+  emon3.calc(2000, comm);                  // time-out (millis)
 
   delay(10000);
 }
